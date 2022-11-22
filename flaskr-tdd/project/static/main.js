@@ -3,7 +3,6 @@
   })();
   
   const postElements = document.getElementsByClassName("entry");
-  console.log(postElements);
   for (var i = 0; i < postElements.length; i++) {
     postElements[i].addEventListener("click", function () {
       const postId = this.getElementsByTagName("h2")[0].getAttribute("id");
