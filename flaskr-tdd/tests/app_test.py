@@ -88,19 +88,17 @@ def test_delete_message(client):
 
 def test_search(client):
     """test search feature"""
-    #login
+    # login
     rv = login(client, app.config["USERNAME"], app.config["PASSWORD"])
-    #add message to test search
+    # add message to test search
     rv = client.post(
-        "/add",
-         data=dict(title="test", text="testing"), 
-         follow_redirects=True
+        "/add", data=dict(title="test", text="testing"), follow_redirects=True
     )
-    #check if message added
+    # check if message added
     assert b"No entries here so far" not in rv.data
     assert b"test" in rv.data
     assert b"testing" in rv.data
-    #test search
+    # test search
     rv = client.get("/search?query=test")
     assert b"test" in rv.data
     rv = client.get("/search?query=testing")
