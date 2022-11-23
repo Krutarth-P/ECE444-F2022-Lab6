@@ -85,6 +85,7 @@ def test_delete_message(client):
     data = json.loads(rv.data)
     assert data["status"] == 1
 
+#tests created by me
 
 def test_search(client):
     """test search feature"""
